@@ -6,7 +6,7 @@ export const fetchApi = async () => {
     return data;
     
   }catch (error) {
-    console.log(error.message);
+    console.log(error,"error");
   }
 }
 

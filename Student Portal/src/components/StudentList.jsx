@@ -5,7 +5,7 @@ import { fetchApi } from "../Data/api";
 const StudentDetails = () => {
   const [state, setState] = useState({
     list: [],
-    loading: true,
+    // loading: true,
   });
 
   const navigate = useNavigate();
