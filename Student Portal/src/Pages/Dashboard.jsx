@@ -1,13 +1,12 @@
 import React from 'react'
-import StudentList from '../components/StudentList'
+import StudentDetails from '../components/StudentList'
 
 function DashBoard() 
 {
 
   return (
         <div>
-          <StudentList/>
-            
+<StudentDetails/>            
         </div>
   )
 }

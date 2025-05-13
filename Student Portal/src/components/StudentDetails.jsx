@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { fetchApi } from "../Data/api";
+import "bootstrap/dist/css/bootstrap.min.css"; 
 
 const StudentList = () => {
   const [state, setState] = useState({
@@ -9,12 +10,13 @@ const StudentList = () => {
 
   const { details, loading } = state;
 
-
   useEffect(() => {
     const studentDetail = async () => {
       try {
         const data = await fetchApi();
-        setState((prev) => ({ ...prev, details: data }));
+              setState((prev) => ({ ...prev, details: data.users })); 
+
+        // setState((prev) => ({ ...prev, details: data }));
       } catch (error) {
         console.error("Failed to fetch:", error);
       } finally {
@@ -23,15 +25,15 @@ const StudentList = () => {
     };
 
     studentDetail();
-  });
+  },[]);
 
 //   useEffect(() => {
 //     return details
 //   }, [details]);
 
-  const sDetails = useEffect(() => {
-    return details
-  }, [details]);
+  // const sDetails = useEffect(() => {
+  //   return details
+  // }, [details]);
 
   //  useEffect(()=>{
   //     return details;
@@ -61,10 +63,11 @@ const StudentList = () => {
         </thead>
 
         <tbody>
-        {sDetails.map((s) => (
+        {details.map((s) => (
           <tr key={s.id}>
             <td>{s.id}</td>
-            <td>{s.name}</td>
+            <td>{s.firstName} {s.lastName}</td>
+            {/* <td>{s.name}</td> */}
             <td>{s.age}</td>
             <td>{s.email}</td>
             <td>{s.phone}</td>
